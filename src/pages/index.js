@@ -1,144 +1,79 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import Layout from '@/components/Layout'
+import AnimatedText from '@/components/AnimatedText'
+import Link from 'next/link'
+import { LinkArrow } from '@/components/Icons'
+import TransitionEffect from '@/components/TransitionEffect'
+import ProfilePic from "../../public/images/profile/developer-pic-1.png"
+import Image from 'next/image'
+import HireMe from '@/components/HireMe'
 
 export default function Home() {
-  const [activeView, setActiveView] = useState('home')
-
   return (
     <>
       <Head>
         <title>Ranhis Rao | HCI Digital Portfolio</title>
-        <meta name="description" content="Personal Portfolio of Ranhis Rao" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+        <meta name="description" content="Personal Portfolio of Ranhis Rao A/L Krishnamurthy" />
       </Head>
-
-      <style jsx global>{`
-        body { background-color: #fafafa !important; color: #1a1a1a !important; font-family: 'Inter', sans-serif; }
-        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-      `}</style>
-
-      <div className="min-h-screen bg-[#fafafa] text-[#1a1a1a] flex flex-col">
-        
-        {/* MINIMALIST TOP NAVIGATION BAR */}
-        <header className="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b border-gray-200">
-          <div className="font-bold text-xl tracking-tight cursor-pointer" onClick={() => setActiveView('home')}>
-            RR.
+      
+      {/* Original multi-page premium transition curtain effect */}
+      <TransitionEffect />
+      
+      <main className='flex items-center text-dark w-full min-h-screen dark:text-light'>
+        <Layout className='pt-0 md:pt-16 sm:pt-8'>
+          <div className="flex items-center justify-between w-full lg:flex-col">
+            
+            {/* Left Column: Original Avatar Artwork Image Vector */}
+            <div className='w-1/2 md:w-full'>
+              <Image 
+                src={ProfilePic} 
+                alt="Ranhis Rao Portfolio Graphic" 
+                className='w-full h-auto lg:hidden md:inline-block md:w-full'
+                priority 
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+              />
+            </div>
+            
+            {/* Right Column: Original Typography Grid Layout */}
+            <div className='w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center'>
+              
+              {/* Native Staggered Letter Typing Animation */}
+              <AnimatedText 
+                text="Turning Vision Into Reality With Code And Design." 
+                className='!text-6xl !text-left xl:!text-5xl lg:!text-center lg:!text-6xl md:!text-5xl sm:!text-3xl'
+              />
+              
+              {/* Profile Bio mapped with your verified academic records */}
+              <p className='my-4 text-base font-medium md:text-sm sm:text-xs text-gray-700 dark:text-gray-300'>
+                I am an Information Technology student specializing in Computer Science (Computer Networking) at Universiti Teknikal Malaysia Melaka[cite: 74, 77]. 
+                Leveraging a robust foundational background from my Diploma in IT (Digital Technology) at Politeknik Balik Pulau, I focus on software optimization, 
+                relational database schema auditing, and deploying secure local area network environments[cite: 1, 9, 25].
+              </p>
+              
+              {/* Original Button Actions */}
+              <div className='flex items-center self-start mt-2 lg:self-center'>
+                <a 
+                  href="mailto:ranhisrao310504@gmail.com" 
+                  className="flex items-center bg-dark text-light p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light hover:dark:border-light md:p-2 md:px-4 md:text-base"
+                >
+                  Contact Me <LinkArrow className={"w-6 ml-1"} />
+                </a>
+                
+                <a 
+                  href="mailto:ranhisrao310504@gmail.com" 
+                  className="ml-4 text-lg font-medium capitalize text-dark underline dark:text-light md:text-base"
+                >
+                  Email Profile
+                </a>
+              </div>
+              
+            </div>
           </div>
-          <nav className="flex gap-8 font-medium text-sm text-gray-600">
-            <button onClick={() => setActiveView('home')} className={`hover:text-black transition-colors ${activeView === 'home' ? 'text-black underline font-semibold' : ''}`}>Home</button>
-            <button onClick={() => setActiveView('about')} className={`hover:text-black transition-colors ${activeView === 'about' ? 'text-black underline font-semibold' : ''}`}>About & Education</button>
-            <button onClick={() => setActiveView('projects')} className={`hover:text-black transition-colors ${activeView === 'projects' ? 'text-black underline font-semibold' : ''}`}>Projects</button>
-          </nav>
-        </header>
+        </Layout>
 
-        {/* MAIN TEMPLATE VIEWPORT CONTAINER */}
-        <main className="flex-1 w-full max-w-6xl mx-auto px-6 py-12 flex items-center justify-center">
-          
-          {/* VIEW 1: MAIN LANDING HOME PAGE */}
-          {activeView === 'home' && (
-            <div className="grid grid-cols-12 gap-12 items-center w-full animate-fade-in">
-              {/* Left Side: Mock Graphic Vector Placeholder Box */}
-              <div className="col-span-5 flex justify-center">
-                <div className="w-80 h-80 bg-gradient-to-tr from-purple-100 to-blue-100 rounded-full flex items-center justify-center shadow-inner relative border border-gray-200">
-                  <span className="text-sm font-semibold text-gray-400">System Developer Illustration</span>
-                  {/* Floating Circular Badge Component */}
-                  <div className="absolute -bottom-2 -right-2 bg-black text-white text-xs px-3 py-3 rounded-full font-bold tracking-wider uppercase animate-bounce">
-                    HCI Web
-                  </div>
-                </div>
-              </div>
-              
-              {/* Right Side: Original Template Typography Text Layout */}
-              <div className="col-span-7 flex flex-col items-start">
-                <h1 className="text-5xl font-black tracking-tight leading-tight mb-4 text-gray-900">
-                  Turning Vision Into Reality With Code And Design.
-                </h1>
-                <p className="text-gray-600 text-base leading-relaxed mb-6">
-                  I am an Information Technology undergraduate student specializing in Computer Science (Computer Networking) at Universiti Teknikal Malaysia Melaka[cite: 74, 77, 80]. 
-                  With a solid background from my Diploma in IT (Digital Technology) from Politeknik Balik Pulau[cite: 1, 9], I focus on software optimization, 
-                  relational schema auditing, and deploying secure local area network environments.
-                </p>
-                <div className="flex gap-4 items-center">
-                  <a href="mailto:ranhisrao310504@gmail.com" className="bg-black text-white px-6 py-3 rounded-lg font-medium text-sm hover:bg-gray-800 transition-colors shadow-sm">
-                    Contact Me
-                  </a>
-                  <button onClick={() => setActiveView('about')} className="text-sm font-semibold underline text-gray-800 hover:text-black">
-                    View Academic History &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* VIEW 2: ABOUT & EDUCATION TIMELINE */}
-          {activeView === 'about' && (
-            <div className="w-full max-w-3xl animate-fade-in">
-              <h2 className="text-3xl font-bold tracking-tight mb-2">Biography & Academic History</h2>
-              <p className="text-gray-500 text-sm mb-8">Verification profile data extracted from institutional transcripts.</p>
-              
-              <div className="bg-white border border-gray-200 p-6 rounded-xl shadow-sm mb-8">
-                <h3 className="font-bold text-gray-800 mb-2">RANHIS RAO A/L KRISHNAMURTHY</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Student Matric ID: B032510131[cite: 93]. Passionate about structural user-interface logic fields, tracking algorithmic execution marks, and mapping operational server metrics.
-                </p>
-              </div>
-
-              <h3 className="text-lg font-bold mb-4 text-gray-800">Education Chronology</h3>
-              <div className="border-l-2 border-gray-200 pl-6 space-y-6">
-                <div className="relative">
-                  <div className="absolute -left-[31px] top-1.5 bg-black w-4 h-4 rounded-full border-4 border-white"></div>
-                  <h4 className="font-bold text-gray-900">Bachelor of Computer Science (Computer Networking) with Honors [cite: 77]</h4>
-                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">2025 - Present</span>
-                  <p className="text-xs text-gray-500 mt-1">Universiti Teknikal Malaysia Melaka | Faculty of Information and Communication Technology[cite: 80, 115].</p>
-                </div>
-                <div className="relative">
-                  <div className="absolute -left-[31px] top-1.5 bg-gray-300 w-4 h-4 rounded-full border-4 border-white"></div>
-                  <h4 className="font-bold text-gray-900">Diploma in Information Technology (Digital Technology) [cite: 1]</h4>
-                  <span className="text-xs font-semibold text-green-600 bg-green-50 px-2 py-0.5 rounded">2022 - 2025 (Completed) [cite: 1]</span>
-                  <p className="text-xs text-gray-500 mt-1">Politeknik Balik Pulau, Pulau Pinang | Final Cumulative GPA: 3.43[cite: 2, 32].</p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* VIEW 3: WORKS PRODUCED GRID */}
-          {activeView === 'projects' && (
-            <div className="w-full animate-fade-in">
-              <h2 className="text-3xl font-bold tracking-tight mb-2">Works & Lab Projects</h2>
-              <p className="text-gray-500 text-sm mb-8">System architectures engineered during course evaluations.</p>
-              
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-white border border-gray-200 p-6 rounded-xl shadow-sm hover:border-black transition-colors">
-                  <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Application Development</span>
-                  <h3 className="font-bold text-lg mt-1 mb-2">Student Attendance Tracker</h3>
-                  <p className="text-gray-600 text-xs leading-relaxed mb-4">
-                    A desktop system tracking student parameters systematically by linking modular logic layers to localized relational query engines.
-                  </p>
-                  <div className="flex gap-2">
-                    <span className="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xxs font-medium">C++ Logic</span>
-                    <span className="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xxs font-medium">MySQL Instance</span>
-                  </div>
-                </div>
-
-                <div className="bg-white border border-gray-200 p-6 rounded-xl shadow-sm hover:border-black transition-colors">
-                  <span className="text-xs font-bold uppercase tracking-wider text-purple-600">Infrastructure Engineering</span>
-                  <h3 className="font-bold text-lg mt-1 mb-2">Enterprise Routing Topology</h3>
-                  <p className="text-gray-600 text-xs leading-relaxed mb-4">
-                    Designed and managed corporate networks running explicit VLSM address calculations and loops checking utilizing Spanning Tree Protocol (STP).
-                  </p>
-                  <div className="flex gap-2">
-                    <span className="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xxs font-medium">Cisco Terminal</span>
-                    <span className="bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-xxs font-medium">STP Execution</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-        </main>
-      </div>
+        {/* NATIVE ROTATING WHEEL BADGE ("Frontend Developer") */}
+        <HireMe />
+      </main>
     </>
   )
 }
