@@ -45,9 +45,9 @@ export default function Home() {
               
               {/* Profile Bio mapped with your verified academic records */}
               <p className='my-4 text-base font-medium md:text-sm sm:text-xs text-gray-700 dark:text-gray-300'>
-                I am an Information Technology student specializing in Computer Science (Computer Networking) at Universiti Teknikal Malaysia Melaka[cite: 74, 77]. 
+                I am an Information Technology student specializing in Computer Science (Computer Networking) at Universiti Teknikal Malaysia Melaka. 
                 Leveraging a robust foundational background from my Diploma in IT (Digital Technology) at Politeknik Balik Pulau, I focus on software optimization, 
-                relational database schema auditing, and deploying secure local area network environments[cite: 1, 9, 25].
+                relational database schema auditing, and deploying secure local area network environments.
               </p>
               
               {/* Original Button Actions */}
